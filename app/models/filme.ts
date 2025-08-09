@@ -1,7 +1,6 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column, hasMany } from '@adonisjs/lucid/orm'
-import { HasMany } from '@adonisjs/lucid/types/relations'
-import Categoria from './categoria.js'
+import { BaseModel, column,} from '@adonisjs/lucid/orm'
+
 
 export default class Filme extends BaseModel {
   @column({ isPrimary: true })
@@ -9,9 +8,14 @@ export default class Filme extends BaseModel {
 
   @column()
   declare nome: string
+   @column()
   declare classificacao: string
+   @column()
   declare sinopse: string
+   @column()
   declare duracao: string
+   @column()
+   declare categoriaId: number
 
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
@@ -19,6 +23,5 @@ export default class Filme extends BaseModel {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updatedAt: DateTime
 
-  @hasMany(() => Categoria )
-    declare categorias: HasMany<typeof Categoria>
+  
   }

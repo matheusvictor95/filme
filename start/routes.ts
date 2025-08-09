@@ -8,9 +8,15 @@
 */
 
 import router from '@adonisjs/core/services/router'
+import CategoriasController from '#controllers/categorias_controller'
+import FilmesController from '#controllers/filmes_controller'
 
 router.get('/', async () => {
   return {
     hello: 'world',
   }
 })
+
+router.get('/categorias',[CategoriasController,'index'])
+router.resource('/filmes',FilmesController).apiOnly()
+//router.post('/filmes',[FilmesController,'store'])
