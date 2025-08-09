@@ -17,6 +17,6 @@ router.get('/', async () => {
   }
 })
 
-router.get('/categorias',[CategoriasController,'index'])
+router.resource('/categorias',CategoriasController).apiOnly()
 router.resource('/filmes',FilmesController).apiOnly()
 //router.post('/filmes',[FilmesController,'store'])
